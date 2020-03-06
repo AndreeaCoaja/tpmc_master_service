@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="ac42e6c8-6f62-4926-8b93-85ec978e813f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/manage.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/master_service/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/master_service/admin.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/master_service/api_category_conn/finance.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/master_service/api_category_conn/messaging.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/master_service/apps.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/master_service/environment/env.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/master_service/models.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/master_service/parser/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/master_service/parser/parseJSON.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/master_service/parser/transformationAlgorithm.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/master_service/templates/backend_info.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/master_service/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/master_service/utilities/send_error.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/master_service/views.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mtpproject/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mtpproject/asgi.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mtpproject/settings.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mtpproject/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mtpproject/wsgi.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mtpproject/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mtpproject/.idea/dataSources.local.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mtpproject/.idea/dataSources.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mtpproject/.idea/dataSources/aa2d2527-3c94-4004-bf9f-b7e5590ccd25.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mtpproject/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mtpproject/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mtpproject/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mtpproject/.idea/mtpproject.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mtpproject/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mtpproject/manage.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mtpproject/master_service/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mtpproject/master_service/admin.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mtpproject/master_service/api_category_conn/finance.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mtpproject/master_service/api_category_conn/messaging.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mtpproject/master_service/apps.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mtpproject/master_service/environment/env.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mtpproject/master_service/migrations/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mtpproject/master_service/models.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mtpproject/master_service/parseJSON.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mtpproject/master_service/templates/backend_info.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mtpproject/master_service/tests.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mtpproject/master_service/transformationAlgorithm.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mtpproject/master_service/urls.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mtpproject/master_service/utilities/send_error.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mtpproject/master_service/views.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mtpproject/mtpproject/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mtpproject/mtpproject/asgi.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mtpproject/mtpproject/settings.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mtpproject/mtpproject/urls.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mtpproject/mtpproject/wsgi.py" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1Ylb5CZ3f0XAkx2SKZwbHMrnoG2" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/master_service/parser" />
+      <recent name="$PROJECT_DIR$" />
+    </key>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ac42e6c8-6f62-4926-8b93-85ec978e813f" name="Default Changelist" comment="" />
+      <created>1583519942546</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1583519942546</updated>
+      <workItem from="1583519943821" duration="646000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="556" y="309" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1583520353334">
+      <screen x="0" y="23" width="1680" height="953" />
+    </state>
+    <state x="556" y="309" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1680.953@0.23.1680.953" timestamp="1583520353334" />
+  </component>
+</project>
