@@ -1,4 +1,4 @@
 class Condition:
-    def __init__(self, id, description):
+    def __init__(self, id, category):
         self.id = id
-        self.description = description
+        self.category = category
