@@ -1,12 +1,12 @@
 class Phase:
-    def __init__(self, id, type, componentIds):
+    def __init__(self, id, type, component_ids):
         self.id = id
         self.type = type
-        self.componentIds = componentIds
+        self.component_ids = component_ids
 
 class Component:
-    def __init__(self, Id, type, category, description):
-        self.Id = Id
+    def __init__(self, id, type, category, description):
+        self.id = id
         self.type = type
         self.category = category
         self.description = description

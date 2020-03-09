@@ -1,5 +1,4 @@
 class Operation:
-    def __init__(self, id, category, description):
+    def __init__(self, id, category):
         self.id = id
         self.category = category
-        self.description = description
