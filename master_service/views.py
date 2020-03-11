@@ -17,5 +17,5 @@ class ReceiveRoutineViewSet(viewsets.ViewSet):
 
         deserialized_data = serializer.validated_data
 
-        stockprice = finance.get_stockprice_for_company(deserialized_data["company"])
+        stockprice = finance.get_stockprice_for_company(deserialized_data["routine"])
         return Response({'success': 'yes'})
