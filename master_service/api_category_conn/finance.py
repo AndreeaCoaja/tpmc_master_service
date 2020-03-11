@@ -1,3 +1,8 @@
+import logging
+
+from django.conf.urls import url
+from django.contrib.sites import requests
+
 from ..environment import env
 from requests.models import PreparedRequest
 
