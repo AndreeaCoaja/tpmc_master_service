@@ -1,9 +1,9 @@
+from django.http import JsonResponse
 from django.shortcuts import render
-from django.http import HttpResponse, JsonResponse
-from master_service.api_category_conn import finance, messaging
-
 # Logic for handling incoming requests
 from django.views.decorators.csrf import csrf_exempt
+
+from master_service.api_category_conn import finance
 
 
 def backend_info(request):
