@@ -8,6 +8,7 @@ from requests.models import PreparedRequest
 
 # communication to finance api category service
 
+requests.post(url="https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/get-detail", body={"symbol": "MSFT"})
 
 def get_stockprice_for_company(company):
     req = PreparedRequest()
