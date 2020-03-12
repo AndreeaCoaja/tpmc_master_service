@@ -1,9 +1,12 @@
-from django.http import JsonResponse
-from django.shortcuts import render
-# Logic for handling incoming requests
-from django.views.decorators.csrf import csrf_exempt
+import json
 
-from master_service.api_category_conn import finance
+from django.http import JsonResponse, HttpResponse, HttpRequest
+from django.shortcuts import render
+from django.views.decorators.csrf import csrf_exempt
+import logging
+
+from .api_category_conn import finance, messaging
+from .environment.env import AllCategoryNames
 
 
 def backend_info(request):
@@ -14,10 +17,37 @@ def backend_info(request):
 def receive_routine(request):
     if request.method == "POST":
         # TODO: 1) create a object (or array) through parsing the incoming routine
-        # TODO: 2) extract different activities
-        # TODO: 3) order them and perform necessary API calls to respective API Category through api_category_conn.
-        # example:
-        finance.get_stockprice_for_company('adidas')
-        return JsonResponse({'success': 'yes'}, status=200)
+        # TODO: 2) extract different activities and store them in e.g. an array
+        activity_array = []
+
+        # Mocked Data
+        financing_activity = {
+            "type": "FINANCING",
+            "purpose": "GET_SPECIFIC_STOCKPRICE",
+            "company_name": "adidas"
+        }
+        financing_activity = json.dumps(financing_activity)
+
+        messaging_activity = {
+            "type": "MESSAGING",
+            "purpose": "SEND_EMAIL",
+            "to": "adidas",
+            "subject": "Hello from the other side"
+        }
+        messaging_activity = json.dumps(messaging_activity)
+
+        activity_array.append(json.loads(financing_activity))
+        activity_array.append(json.loads(messaging_activity))
+
+        last_response = ""
+        for phase in activity_array:
+            # for activity in phase:  # Consider this for granularity --> simplify by ignoring simultaneous activities?
+            if phase['type'] == AllCategoryNames.finance.value:
+                last_response = finance.use(phase, last_response)
+            if phase['type'] == AllCategoryNames.messaging.value:
+                last_response = messaging.use(phase, last_response)
+
+        return JsonResponse({'success': 'POST request done.'}, status=200)
+
     else:
-        return JsonResponse({'success': 'request received. Implement routine extraction method'}, status=200)
+        return JsonResponse({'success': 'GET request received.'}, status=200)

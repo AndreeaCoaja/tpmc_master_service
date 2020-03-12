@@ -1,21 +1,20 @@
-import logging
-
 import requests
-from requests.models import PreparedRequest
+from ..environment.env import FinancePurpose, CategoryFinance
+import logging
 
 
 # communication to finance api category service
+def use(finance_object, last_response):
+    if finance_object['purpose'] == FinancePurpose.get_specific_stockprice.value:
+        return get_stockprice_for_company(finance_object)
+    elif finance_object['purpose'] == FinancePurpose.get_generic_stockprice.value:
+        return ""
 
 
-def get_stockprice_for_company(company):
-    url = "url to finance api"
-    req = PreparedRequest()
-    params = {'company': company}
-    req.prepare_url(url, params)
-
-    # sending get request and saving the response as response object
-    req = requests.get(url=req.url)
+def get_stockprice_for_company(finance_object):
+    url = CategoryFinance.url_to_finance_service.value + "" + CategoryFinance.uri_to_stock_price_function.value
+    post_data = {finance_object}
+    response = requests.post(url=url, data=post_data)
 
     # extracting data in json format
-    logging.info(req.json())
-    return req.json()
+    return response.content.json()
