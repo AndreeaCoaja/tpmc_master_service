@@ -1,8 +1,7 @@
-from django.urls import path
+from rest_framework.routers import DefaultRouter
 
-from master_service import views
+from master_service.views import ReceiveRoutineViewSet
 
-urlpatterns = [
-    path('', views.backend_info, name='backend_info'),
-    path('receive_routine', views.receive_routine, name='receive_routine'),
-]
+router = DefaultRouter()
+router.register(r'receive_routine', ReceiveRoutineViewSet.create, basename='receive_routine')
+urlpatterns = router.urls
