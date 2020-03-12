@@ -15,8 +15,8 @@ class MessagingPurpose(enum.Enum):
 
 # Finance Category ENUMS
 class CategoryFinance(enum.Enum):
-    url_to_finance_service = 'http://127.0.0.1:8001/api'
-    uri_to_stock_price_function = '/stock_price'
+    url_to_finance_service = 'http://127.0.0.1:8001/api/stock_price/'
+    # uri_to_stock_price_function = '/stock_price/'
 
 
 class FinancePurpose(enum.Enum):

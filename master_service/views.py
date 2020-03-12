@@ -26,7 +26,7 @@ def receive_routine(request):
             "purpose": "GET_SPECIFIC_STOCKPRICE",
             "company_name": "adidas"
         }
-        financing_activity = json.dumps(financing_activity)
+        financing_activity = json.dumps(financing_activity)  # Create JSON
 
         messaging_activity = {
             "type": "MESSAGING",
@@ -34,10 +34,10 @@ def receive_routine(request):
             "to": "adidas",
             "subject": "Hello from the other side"
         }
-        messaging_activity = json.dumps(messaging_activity)
+        messaging_activity = json.dumps(messaging_activity)  # Create JSON
 
-        activity_array.append(json.loads(financing_activity))
-        activity_array.append(json.loads(messaging_activity))
+        activity_array.append(json.loads(financing_activity))  # Create Python DICT and append to activity array
+        activity_array.append(json.loads(messaging_activity))  # Create Python DICT and append to activity array
 
         last_response = ""
         for phase in activity_array:
@@ -47,7 +47,7 @@ def receive_routine(request):
             if phase['type'] == AllCategoryNames.messaging.value:
                 last_response = messaging.use(phase, last_response)
 
-        return JsonResponse({'success': 'POST request done.'}, status=200)
+            return JsonResponse({'success': 'POST request done.'}, status=200)
 
     else:
         return JsonResponse({'success': 'GET request received.'}, status=200)
