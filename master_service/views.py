@@ -1,10 +1,9 @@
-from django.shortcuts import render
 from rest_framework import viewsets
 from rest_framework.response import Response
 
-from master_service.api_category_conn import finance, messaging
 from master_service.serializers import ReceiveRoutineSerializer
-from master_service.parser import parseJSON, transformationAlgorithm
+from master_service.user_routine.parser.parse_json import parse_json_routines
+from master_service.user_routine.parser.transformation_algorithm import transform
 
 
 # Logic for handling incoming requests
@@ -18,8 +17,8 @@ class ReceiveRoutineViewSet(viewsets.ViewSet):
 
         deserialized_data = serializer.validated_data
 
-        my_json = parseJSON.parse_json_routines(deserialized_data["routine"])
+        my_json = parse_json_routines(deserialized_data["routine"])
 
-        transformationAlgorithm.transform(my_json)
+        routine = transform(my_json)
 
         return Response({'success': 'yes'})
