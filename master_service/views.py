@@ -1,53 +1,28 @@
 import json
-
-from django.http import JsonResponse, HttpResponse, HttpRequest
-from django.shortcuts import render
-from django.views.decorators.csrf import csrf_exempt
 import logging
-
 from .api_category_conn import finance, messaging
 from .environment.env import AllCategoryNames
+from rest_framework import viewsets
+from rest_framework.response import Response
+from master_service.serializers import ReceiveRoutineSerializer
+from master_service.user_routine.parser.parse_json import parse_json_routines
+from master_service.user_routine.parser.transformation_algorithm import transform
 
 
-def backend_info(request):
-    return render(request, 'backend_info.html', {})
+# Logic for handling incoming requests
+class ReceiveRoutineViewSet(viewsets.ViewSet):
+    serializer_class = ReceiveRoutineSerializer
+
+    def create(self, request):
+        serializer = self.serializer_class(data=request.data)
+        serializer.is_valid(raise_exception=True)
 
 
-@csrf_exempt
-def receive_routine(request):
-    if request.method == "POST":
-        # TODO: 1) create a object (or array) through parsing the incoming routine
-        # TODO: 2) extract different activities and store them in e.g. an array
-        activity_array = []
+        deserialized_data = serializer.validated_data
 
-        # Mocked Data
-        financing_activity = {
-            "type": "FINANCING",
-            "purpose": "GET_SPECIFIC_STOCKPRICE",
-            "company_name": "adidas"
-        }
-        financing_activity = json.dumps(financing_activity)  # Create JSON
+        my_json = parse_json_routines(deserialized_data["routine"])
 
-        messaging_activity = {
-            "type": "MESSAGING",
-            "purpose": "SEND_EMAIL",
-            "to": "adidas",
-            "subject": "Hello from the other side"
-        }
-        messaging_activity = json.dumps(messaging_activity)  # Create JSON
-
-        activity_array.append(json.loads(financing_activity))  # Create Python DICT and append to activity array
-        activity_array.append(json.loads(messaging_activity))  # Create Python DICT and append to activity array
-
-        last_response = ""
-        for phase in activity_array:
-            # for activity in phase:  # Consider this for granularity --> simplify by ignoring simultaneous activities?
-            if phase['type'] == AllCategoryNames.finance.value:
-                last_response = finance.use(phase, last_response)
-            if phase['type'] == AllCategoryNames.messaging.value:
-                last_response = messaging.use(phase, last_response)
-
-            return JsonResponse({'success': 'POST request done.'}, status=200)
-
-    else:
-        return JsonResponse({'success': 'GET request received.'}, status=200)
+        routine = transform(my_json)
+        # Former Code: calls finance.use(finance_object) !
+        # TODO: Add ReceiveRoutineViewSet as trigger for the endpoint /receive_routine !
+        return Response({'success': 'yes'})

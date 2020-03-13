@@ -1,9 +1,6 @@
 import json
-
 import requests
 from rest_framework.response import Response
-
-
 from ..environment.env import FinancePurpose, CategoryFinance
 import logging
 
@@ -31,4 +28,4 @@ def get_stockprice_for_company(finance_object):
 
     logging.warning(response.json())
     # extracting data in json format
-    return Response(response.json())
+    return Response(response.json()["stock_price"])
