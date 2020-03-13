@@ -4,23 +4,31 @@ from ..components.messaging.operation import MessagingOperation
 
 
 def parse_json_routines(my_json):
+    """
+    This method takes from json file information and creates Condition, Operation and Routine Objects
+    :param my_json:
+    :return: a routine
+    """
+
     routine = Routine(my_json["Name"], [], [])
 
     for component in my_json["components"]:
         if component["type"] == "condition":
-            condition = create_condition(component)
+            condition = create_FinanceCondition(component)
             routine.components.append(condition)
 
         if component["type"] == "operation":
-            operation = create_operation(component)
+            operation = create_MessagingOperation(component)
             routine.components.append(operation)
 
     for phase in my_json["phases"]:
         ph = Phase(phase["id"], phase["type"], phase["component_ids"])
         routine.phases.append(ph)
 
+    return routine
 
-def create_operation(operation):
+
+def create_MessagingOperation(operation):
     """
     :param dict operation:
     :return:
@@ -35,7 +43,7 @@ def create_operation(operation):
     raise Exception(f"Unrecognised operation category: {operation['category']}!")
 
 
-def create_condition(condition):
+def create_FinanceCondition(condition):
     """
     :param dict condition:
     :return:
