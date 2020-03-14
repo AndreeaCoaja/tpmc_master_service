@@ -14,11 +14,11 @@ def parse_json_routines(my_json):
 
     for component in my_json["components"]:
         if component["type"] == "condition":
-            condition = create_FinanceCondition(component)
+            condition = create_Condition(component)
             routine.components.append(condition)
 
         if component["type"] == "operation":
-            operation = create_MessagingOperation(component)
+            operation = create_Operation(component)
             routine.components.append(operation)
 
     for phase in my_json["phases"]:
@@ -28,7 +28,7 @@ def parse_json_routines(my_json):
     return routine
 
 
-def create_MessagingOperation(operation):
+def create_Operation(operation):
     """
     :param dict operation:
     :return:
@@ -43,7 +43,7 @@ def create_MessagingOperation(operation):
     raise Exception(f"Unrecognised operation category: {operation['category']}!")
 
 
-def create_FinanceCondition(condition):
+def create_Condition(condition):
     """
     :param dict condition:
     :return:
