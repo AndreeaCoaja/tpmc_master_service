@@ -1,13 +1,11 @@
 from rest_framework import viewsets
 from rest_framework.response import Response
-
 from master_service.serializers import ReceiveRoutineSerializer
 from master_service.user_routine.parser.parse_json import parse_json_routines
 from master_service.user_routine.parser.transformation_algorithm import transform
 
 
 # Logic for handling incoming requests
-
 class ReceiveRoutineViewSet(viewsets.ViewSet):
     serializer_class = ReceiveRoutineSerializer
 
@@ -20,5 +18,6 @@ class ReceiveRoutineViewSet(viewsets.ViewSet):
         my_json = parse_json_routines(deserialized_data["routine"])
 
         routine = transform(my_json)
-
+        # Former Code: calls finance.use(finance_object) !
+        # TODO: Add ReceiveRoutineViewSet as trigger for the endpoint /receive_routine !
         return Response({'success': 'yes'})
