@@ -5,7 +5,6 @@ from master_service.serializers import ReceiveRoutineSerializer
 from master_service.user_routine.parser.parse_json import parse_json_routines
 from master_service.user_routine.parser.transformation_algorithm import transform
 
-# from master_service.api_category_conn.messaging import send_email as send
 
 
 # Logic for handling incoming requests
@@ -24,11 +23,3 @@ class ReceiveRoutineViewSet(viewsets.ViewSet):
         routine = transform(my_json)
 
         return Response({'success': 'yes'})
-
-
-# class TestMailViewSet(viewsets.ViewSet):
-#
-#     def create(self, request):
-#
-#         response = send("mtpclujmannheiminfo@web.de", "Testaufruf aus Masterservice", "Testinhalt")
-#         return Response(response)
