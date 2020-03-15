@@ -4,6 +4,13 @@ from ..components.messaging.operation import MessagingOperation
 
 
 def parse_json_routines(my_json):
+    """
+    This method takes from json file information and creates Condition, Operation and Routine Objects
+    :param my_json:
+    :return: a routine
+    :rtype: Routine
+    """
+
     routine = Routine(my_json["Name"], [], [])
 
     for component in my_json["components"]:
@@ -19,11 +26,14 @@ def parse_json_routines(my_json):
         ph = Phase(phase["id"], phase["type"], phase["component_ids"])
         routine.phases.append(ph)
 
+    return routine
+
 
 def create_operation(operation):
     """
+    Creates operation based on the type we get from the parameter (e.g. messaging)
     :param dict operation:
-    :return:
+    :return: 
     """
     if operation["category"] == "messaging":
         return MessagingOperation(
@@ -37,6 +47,7 @@ def create_operation(operation):
 
 def create_condition(condition):
     """
+    Creates condition based on the type we get from the parameter (e.g. finance)
     :param dict condition:
     :return:
     """
