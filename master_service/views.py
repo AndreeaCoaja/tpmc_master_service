@@ -1,7 +1,3 @@
-import json
-import logging
-from .api_category_conn import finance, messaging
-from .constants.constants import AllCategoryNames
 from rest_framework import viewsets
 from rest_framework.response import Response
 from master_service.serializers import ReceiveRoutineSerializer
@@ -16,7 +12,6 @@ class ReceiveRoutineViewSet(viewsets.ViewSet):
     def create(self, request):
         serializer = self.serializer_class(data=request.data)
         serializer.is_valid(raise_exception=True)
-
 
         deserialized_data = serializer.validated_data
 
