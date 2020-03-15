@@ -33,7 +33,7 @@ def create_and_run_routine (my_json):
     This routine is given as a parameter to the call of the transform method which returns False
         if the condition is not fullfiled
     In this case appears an exception
-    :param my_json:
+    :param dict my_json:
     :return:
     """
     myRoutine = parse_json_routines(my_json)

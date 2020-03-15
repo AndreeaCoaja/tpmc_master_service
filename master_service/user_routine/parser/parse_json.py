@@ -8,17 +8,18 @@ def parse_json_routines(my_json):
     This method takes from json file information and creates Condition, Operation and Routine Objects
     :param my_json:
     :return: a routine
+    :rtype: Routine
     """
 
     routine = Routine(my_json["Name"], [], [])
 
     for component in my_json["components"]:
         if component["type"] == "condition":
-            condition = create_Condition(component)
+            condition = create_condition(component)
             routine.components.append(condition)
 
         if component["type"] == "operation":
-            operation = create_Operation(component)
+            operation = create_operation(component)
             routine.components.append(operation)
 
     for phase in my_json["phases"]:
@@ -28,10 +29,11 @@ def parse_json_routines(my_json):
     return routine
 
 
-def create_Operation(operation):
+def create_operation(operation):
     """
+    Creates operation based on the type we get from the parameter (e.g. messaging)
     :param dict operation:
-    :return:
+    :return: 
     """
     if operation["category"] == "messaging":
         return MessagingOperation(
@@ -43,8 +45,9 @@ def create_Operation(operation):
     raise Exception(f"Unrecognised operation category: {operation['category']}!")
 
 
-def create_Condition(condition):
+def create_condition(condition):
     """
+    Creates condition based on the type we get from the parameter (e.g. finance)
     :param dict condition:
     :return:
     """
