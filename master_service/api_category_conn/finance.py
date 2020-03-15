@@ -1,7 +1,7 @@
 import json
 import requests
 from rest_framework.response import Response
-from ..environment.env import FinancePurpose, CategoryFinance
+from ..constants.constants import FinancePurpose, CategoryFinance
 import logging
 
 

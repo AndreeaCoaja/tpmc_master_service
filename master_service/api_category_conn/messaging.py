@@ -1,7 +1,7 @@
 # importing the requests library
 from django.contrib.sites import requests
 
-from ..environment.env import MessagingPurpose, CategoryMessaging
+from ..constants.constants import MessagingPurpose, CategoryMessaging
 
 # communication to messaging api category service
 

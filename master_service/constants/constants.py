@@ -1,6 +1,6 @@
 import enum
 
-# environment static variables to keep the code clean and having a single source of truth throughout project
+# constants static variables to keep the code clean and having a single source of truth throughout project
 
 
 # Messaging Category ENUMS

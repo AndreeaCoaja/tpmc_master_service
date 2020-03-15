@@ -1,7 +1,7 @@
 import json
 import logging
 from .api_category_conn import finance, messaging
-from .environment.env import AllCategoryNames
+from .constants.constants import AllCategoryNames
 from rest_framework import viewsets
 from rest_framework.response import Response
 from master_service.serializers import ReceiveRoutineSerializer
